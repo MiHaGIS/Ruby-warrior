@@ -10,7 +10,7 @@ class Player
   end
 
   def movement!
-    return hero.detonate! if ahead.double_trouble?
+    return hero.detonate!(ahead.bomb_direction) if ahead.double_trouble?
     return hero.rescue!(adjacent.ticking_direction) if adjacent.ticking?
     return hero.bind!(adjacent.enemy_direction) if adjacent.surrounded?
     return hero.attack!(:forward) if hero.feel(:forward).enemy?
